@@ -1,0 +1,96 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ---------- Virtual envs ----------
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ---------- IDE / editors ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- Notebooks ----------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ---------- Data (large, regenerable) ----------
+# Keep only tiny configs / fold JSONs under data/, ignore the actual volumes/masks/dicoms.
+data/raw/
+data/dicom/
+data/volumes/
+data/labels/
+data/local_volumes/
+data/local_labels/
+data/normalized/
+data/simple_normalized/
+data/seg/
+
+# Top-level raw/ (DICOM + NIfTI) — never commit
+raw/
+
+# Common medical-imaging extensions, anywhere in the tree
+*.nii
+*.nii.gz
+*.dcm
+*.mhd
+*.mha
+*.nrrd
+
+# ---------- Experiment outputs ----------
+outputs/
+runs/
+logs/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.tar
+
+# ---------- Weights & Biases ----------
+wandb/
+
+# ---------- Misc ----------
+*.log
+*.tmp
+*.bak
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- Secrets / local-only ----------
+.env
+.env.*
+*.secret
+secrets/
+
+# ---------- Allow tracked exceptions ----------
+# Track fold JSONs (small, important for reproducibility) even though data/ is ignored.
+!data/folds_5cv.json
+!data/folds_5cv_local.json

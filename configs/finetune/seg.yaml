@@ -1,0 +1,46 @@
+seed: 0
+device: cpu
+
+wandb:
+  enable: true
+  project: SPECT-MPI-V2-Seg-scratch
+  run_name: cv5_frac100_fold0
+
+output:
+  dir: outputs/finetune/seg/scratch/frac100/fold0
+
+data:
+  images_dir: data/local_volumes
+  labels_dir: data/local_labels
+  num_workers: 4
+
+model:
+  encoder: resnet18_3d_gn
+  emb_dim: 256
+
+cv:
+  folds_json: data/folds_5cv.json
+  fold: 0
+  val_ratio: 0.15
+
+finetune:
+  init: scratch
+  pretrained_ckpt: null
+  freeze_epochs: 0
+  head_base: 32
+  dice_weight: 0.5
+  save_examples_every: 50
+  num_examples: 3
+
+label_frac:
+  enable: false
+  frac: 1.0
+
+train:
+  epochs: 200
+  batch_size: 4
+  lr_head: 1.0e-3
+  lr_encoder: 1.0e-3
+  weight_decay: 1.0e-4
+  amp: true
+  log_every: 20
